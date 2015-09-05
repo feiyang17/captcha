@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>washer</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+	<style>
+		.washer-captcha {
+			width: 90%;
+			margin: 0 auto;
+			height: 400px;
+			background-color: rgb(243, 243, 243);
+			position: relative;
+		}
+
+		.hint {
+			margin-left: 30px;
+			padding-top: 30px;
+		}
+
+		.clothes {
+			list-style: none;
+		}
+
+		.clothes li {
+			position: absolute;
+			height: 120px;
+			width: 80px;
+			z-index: 999;
+		}
+
+		.clothes .dress {
+			background: url(assets/images/washer/dress.png) no-repeat;
+			top: 90px;
+		}
+
+		.clothes .pants {
+			background: url(assets/images/washer/pants.png) no-repeat;
+			top: 240px;
+		}
+
+		.washer {
+			background: url(assets/images/washer/washer.png) no-repeat;
+			background-size: cover;
+			height: 200px;
+			width: 150px;
+			position: absolute;
+			top: 90px;
+			left: 48%;
+		}
+
+		@-webkit-keyframes gripAnim {
+			0% {
+				opacity: 1;
+				-webkit-transform: scale(1); /* Safari */
+    			transform: scale(1);
+			}
+
+			100% {
+				-webkit-transform: scale(0); /* Safari */
+    			transform: scale(0);
+				opacity: 0;
+			}
+		}
+
+		@keyframes gripAnim {
+			0% {
+				opacity: 1;
+				-webkit-transform: scale(1); /* Safari */
+    			transform: scale(1);
+			}
+
+			100% {
+				opacity: 0;
+				-webkit-transform: scale(0); /* Safari */
+    			transform: scale(0);
+			}
+		}
+
+		.grip {
+			-webkit-animation: gripAnim 2s;
+			animation: gripAnim 2s;
+		}
+
+		@-webkit-keyframes rotateAnim {
+			0% {
+				-webkit-transform: rotate(0deg); /* Safari */
+				transform: rotate(0deg);
+			}
+
+			25% {
+				-webkit-transform: rotate(180deg); /* Safari */
+				transform: rotate(180deg);
+			}
+
+			50% {
+				-webkit-transform: rotate(0deg); /* Safari */
+				transform: rotate(0deg);
+			}
+
+			75% {
+				-webkit-transform: rotate(-180deg); /* Safari */
+				transform: rotate(-180deg);
+			}
+
+			100% {
+				-webkit-transform: rotate(0deg); /* Safari */
+				transform: rotate(0deg);
+			}
+		}
+
+		@keyframes rotateAnim {
+			0% {
+				-webkit-transform: rotate(0deg); /* Safari */
+				transform: rotate(0deg);
+			}
+
+			25% {
+				-webkit-transform: rotate(180deg); /* Safari */
+				transform: rotate(180deg);
+			}
+
+			50% {
+				-webkit-transform: rotate(0deg); /* Safari */
+				transform: rotate(0deg);
+			}
+
+			75% {
+				-webkit-transform: rotate(-180deg); /* Safari */
+				transform: rotate(-180deg);
+			}
+
+			100% {
+				-webkit-transform: rotate(0deg); /* Safari */
+				transform: rotate(0deg);
+			}
+		}
+
+		/*洗衣机转动*/
+		.washer-rotate {
+			background: url(assets/images/washer/washer_rotate.png) no-repeat;
+			background-size: cover;
+			height: 90px;
+			width: 90px;
+			position: absolute;
+			top: 157px;
+			left: 58%;
+		}
+
+		.rotate {
+			-webkit-animation: rotateAnim 4s infinite;
+			animation: rotateAnim 4s infinite;
+		}
+
+		.mask {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			background-color: rgba(0, 0, 0, .75);
+			z-index: 1000;
+		}
+
+		.toast {
+			margin: 0;
+			font-size: 25px;
+			text-align: center;
+			line-height: 400px;
+			color: white;
+			text-indent: 10px;
+		}
+
+		.yes {
+			background: url(assets/images/yes.png) no-repeat 80px 50%;
+			background-size: 30px;
+		}
+
+		.no {
+			background: url(assets/images/no.png) no-repeat 80px 50%;
+			background-size: 30px;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="washer-captcha">
+		<h3 class="hint">请将裙子放在洗衣机</h3>
+		<!-- <button id="refresh">刷新</button> -->
+		<ul class="clothes">
+			<li class="dress dragable"></li>
+			<li class="pants dragable"></li>
+		</ul>
+		<!-- 洗衣机 -->
+		<em class="washer"></em>
+		<!-- 验证 -->
+		<em style="display:none" class="washer-rotate"></em>
+		<div style="display: none" class="mask">
+			<h4 class="yes toast">验证成功</h4>
+			<h4 style="display: none" class="no toast">验证失败</h4>
+		</div>
+	</div>
+</body>
+<script src="assets/js/zepto.js"></script>
+<script src="assets/js/zepto.drag.js"></script>
+<script src="assets/js/washer.js"></script>
+<script>
+	// $('#refresh').click(function() {
+	// 	window.location.reload();
+	// });
+</script>
+</html> 

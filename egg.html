@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Catch the Egg</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+	<style>
+		.hint {
+			margin: 0;
+			padding-top: 20px;
+			padding-left: 20px;
+		}
+
+		.egg-captcha {
+			width: 90%;
+			margin: 0 auto;
+			height: 400px;
+			background: url(assets/images/egg/ground.png) no-repeat 0% 100%;
+			background-color: #afd08b;
+			position: relative;
+		}
+
+		.egg {
+			position: absolute;
+			height: 40px;
+			width: 30px;
+			background: url(assets/images/egg/egg.png) no-repeat;
+			background-size: cover;
+			right: 30px;
+			top: 100px;
+		}
+
+		.hen {
+			position: absolute;
+			height: 120px;
+			width: 130px;
+			top: 0;
+			right: 20px;
+			background: url(assets/images/egg/hen.png) no-repeat;
+			background-size: cover;
+		}
+
+		.egg-broken {
+			position: absolute;
+			height: 35px;
+			width: 70px;
+			background: url(assets/images/egg/egg_broken.png) no-repeat;
+			background-size: cover;
+			right: 30px;
+			bottom: 0;
+		}
+
+		.basket {
+			position: absolute;
+			width: 105px;
+			height: 35px;
+			background: url(assets/images/egg/basket.png) no-repeat;
+			background-size: cover;
+			bottom: 10px;
+		}
+
+		.get-egg {
+			height: 70px;
+			background: url(assets/images/egg/basket_egg.png) no-repeat;
+			background-size: contain;
+		}
+
+		.mask {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			background-color: rgba(0, 0, 0, .75);
+		}
+
+		.toast {
+			margin: 0;
+			font-size: 25px;
+			text-align: center;
+			line-height: 400px;
+			color: white;
+			text-indent: 10px;
+		}
+
+		.yes {
+			background: url(assets/images/yes.png) no-repeat 80px 50%;
+			background-size: 30px;
+		}
+
+		.no {
+			background: url(assets/images/no.png) no-repeat 80px 50%;
+			background-size: 30px;
+		}
+	</style>
+</head>
+<body>
+	<div class="egg-captcha">
+		<h3 class="hint">请拖动篮子接鸡蛋</h3>
+		<em class="hen"></em>
+		<em class="egg"></em>
+		<em class="basket dragable"></em>
+		<em style="display: none" class="egg-broken"></em>
+		<div style="display: none" class="mask">
+			<h4 class="yes toast">验证成功</h4>
+			<h4 style="display: none" class="no toast">验证失败</h4>
+		</div>
+	</div>
+</body>
+<script src="assets/js/zepto.js"></script>
+<script src="assets/js/zepto.mask.js"></script>
+<script src="assets/js/zepto.drag.js"></script>
+<script src="assets/js/zepto.down.js"></script>
+<script src="assets/js/egg.js"></script>
+<script>
+	// $.mask({
+	// 	origin: '.egg-captcha',
+	// 	content: '<h4 class="no toast">验证失败</h4>',
+	// });
+</script>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>摘苹果</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+	<style>
+		body {
+			-webkit-user-select : none;
+			background: url(images/tree.jpg) no-repeat;
+			background-size: cover;
+		}
+
+		.apple {
+			position: absolute;
+			height: 50px;
+			width: 50px;
+			background-color: red;
+			left: 60%; 
+			top: 15%;
+			z-index: 100;
+ 		}
+
+ 		.basket {
+ 			height: 80px;
+			width: 80px;
+ 			position: absolute;
+ 			background: url(images/basket.jpg) no-repeat;
+ 			background-size: cover;
+ 			left: 60%; 
+			top: 50%;
+ 		}
+	</style>
+</head>
+<body>
+	<h3 id="apple" class="apple"></h3>
+	<div class="basket"></div>
+</body>
+<script src="js/zepto.js"></script>
+<script src="js/zepto.dragdrop.js"></script>
+<script src="js/index.js"></script>
+</html>
