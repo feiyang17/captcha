@@ -21,6 +21,8 @@
 					var draggedItemOffset = $draggedItem.offset();
 					touchOffsetEdgeX = touch.pageX - draggedItemOffset.left;
 					touchOffsetEdgeY = touch.pageY - draggedItemOffset.top;
+					console.log('touchOffsetEdgeX' + touchOffsetEdgeX + 'touchOffsetEdgeY' + touchOffsetEdgeY);
+					$draggedItem.trigger('dragStart');
 				},
 
 				'touchmove': function(e) {
@@ -30,13 +32,32 @@
 					var draggedItemX = draggedItemOffset.left;
 
 					console.log('move: ' + draggedItemY + '....' + draggedItemX);
-					if (draggedItemY <= range.down && draggedItemY >= range.up &&
-						draggedItemX >= range.left && draggedItemX <= range.right) {
-						$draggedItem.css({
-							'left': touch.pageX - touchOffsetEdgeX + 'px',
-							'top': touch.pageY - touchOffsetEdgeY + 'px'
-						});
-					}
+					// if (draggedItemY < range.down && draggedItemY > range.up &&
+					// 	draggedItemX > range.left && draggedItemX < range.right) {
+					// }
+					
+					// if(draggedItemY > range.down) {
+					// 	$draggedItem.css('top', range.down + 'px');
+					// }
+
+					// console.log(touch.pageX - touchOffsetEdgeX + 'draggedItemX:' + draggedItemX + 'range.right:' + range.right);
+					// if(draggedItemX > range.right) {
+					// 	$draggedItem.css('left', range.right + 'px');
+					// }
+
+					var left = Math.max(Math.min(touch.pageX - touchOffsetEdgeX, range.right), range.left);
+					var top = Math.max(Math.min(touch.pageY - touchOffsetEdgeY, range.down), range.up);
+
+					// $draggedItem.css({
+					// 	'left': touch.pageX - touchOffsetEdgeX + 'px',
+					// 	'top': touch.pageY - touchOffsetEdgeY + 'px'
+					// });
+
+					$draggedItem.css({
+						'left': left + 'px',
+						'top': top + 'px'
+					});
+					
 					$draggedItem.trigger('drag');
 				},
 

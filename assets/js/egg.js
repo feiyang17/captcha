@@ -68,17 +68,6 @@
 		setTimeout(fail, 200);
 	}
 
-	$egg.down({
-		// 下降的边界
-		bound: eggCaptchaOffset.height - eggInitHeight,
-		// 下降到边界的后果：蛋碎了
-		result: breakEgg
-	});
-
-	$egg.on('down', function() {
-		catchEgg();
-	});
-
 	$basket.drag({
 		range: {
 			up: 0,
@@ -90,5 +79,19 @@
 			right: 230
 		}
 	});
+
+	$basket.on('dragStart', function() {
+		$egg.down({
+			// 下降的边界
+			bound: eggCaptchaOffset.height - eggInitHeight,
+			// 下降到边界的后果：蛋碎了
+			result: breakEgg
+		});
+
+		$egg.on('down', function() {
+			catchEgg();
+		});
+	});
+
 
 })(Zepto)

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Piano</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+	<style>
+		.piano {
+			list-style: none;
+			background-color: #f07163;
+			padding: 20px;
+			text-align: center;
+			position: relative;
+		}
+
+		.piano li {
+			display: inline-block;
+			height: 140px;
+			width: 62px;
+			/*border: 1px solid;*/
+			background-color: #FFF;
+			font-size: 30px;
+		}
+
+		.piano .black {
+			position: absolute;
+			background-color: #030303;
+			color: white;
+			height: 100px;
+			width: 38px;
+			border: 12px solid #f07163;
+		}
+
+		.black1 {
+			top: 0;
+			left: 120px;
+		}
+
+		.black2 {
+			top: 0;
+			left: 195px;
+		}
+
+		.black3 {
+			top: 0;
+			left: 330px;
+		}
+
+		.black4 {
+			top: 0;
+			left: 405px;
+		}
+
+		.black5 {
+			top: 0;
+			left: 477px;
+		}
+	</style>
+</head>
+<body>
+	<h3>请在琴键上弹出 <em>1234567</em></h3>
+	<ul class="piano">
+		<!-- 白键 -->
+		<li data-index="0"><audio class="keyboard" src="assets/media/1.mp3"></audio>1</li>
+		<li data-index="1"><audio class="keyboard" src="assets/media/2.mp3"></audio>2</li>
+		<li data-index="2"><audio class="keyboard" src="assets/media/3.mp3"></audio>3</li>
+		<li data-index="3"><audio class="keyboard" src="assets/media/4.mp3"></audio>4</li>
+		<li data-index="4"><audio class="keyboard" src="assets/media/5.mp3"></audio>5</li>
+		<li data-index="5"><audio class="keyboard" src="assets/media/6.mp3"></audio>6</li>
+		<li data-index="6"><audio class="keyboard" src="assets/media/7.mp3"></audio>7</li>
+
+		<!-- 黑键 -->
+		<li class="black black1" data-index="-1"><audio class="keyboard" src=""></audio></li>
+		<li class="black black2" data-index="8"><audio class="keyboard" src="assets/media/8.mp3"></audio>8</li>
+		<li class="black black3" data-index="9"><audio class="keyboard" src="assets/media/9.mp3"></audio>9</li>
+		<li class="black black4" data-index="0"><audio class="keyboard" src="assets/media/0.mp3"></audio>0</li>
+		<li class="black black5" data-index="-1"><audio class="keyboard" src=""></audio></li>
+	</ul>
+</body>
+<script src="assets/js/zepto.js"></script>
+<script src="assets/js/zepto.touch.js"></script>
+<script src="assets/js/piano.js"></script>
+</html>
