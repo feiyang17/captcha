@@ -18,6 +18,11 @@
 		$('.mask').show();
 		$('.yes').show();
 		$('.no').hide();
+		// 与webview交互
+		try {
+			return control.toastMessage(1);
+		} catch (e) {}
+		return 1;
 	};
 
 	// 显示验证失败
@@ -25,6 +30,10 @@
 		$('.mask').show();
 		$('.no').show();
 		$('.yes').hide();
+		try {
+			return control.toastMessage(0);
+		} catch (e) {}
+		return 0;
 	};
 
 	var isBasketRange = function(caughtOffset) {
