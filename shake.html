@@ -8,36 +8,16 @@
 		.shake-captcha {
 			width: 90%;
 			margin: 0 auto;
-			height: 400px;
+			height: 330px;
+			background: url(assets/images/shake/ground.png) no-repeat left bottom;
 			background-color: rgb(243, 243, 243);
 			position: relative;
+			padding-top: 5px;
+			padding-left: 15px;
 		}
 
-		.garden {
-			position: relative;
-			width : 200px;
-			height: 200px;
-			border: 5px solid #CCC;
-			border-radius: 10px;
-		}
-
-		.ball {
-			position: absolute;
-			top   : 90px;
-			left  : 90px;
-			width : 20px;
-			height: 20px;
-			background: green;
-			border-radius: 100%;
-		}
-
-		.table {
-			height: 50px;
-			width: 50px;
-			background-color: red;
-			position: absolute;
-			top   : 110px;
-			left  : 75px;
+		.hint {
+			color: rgb(140, 136, 135);
 		}
 
 		 @-webkit-keyframes pao50{
@@ -46,33 +26,131 @@
             20%{-webkit-transform:translate3d(-10px,9px,0)}
             30%{-webkit-transform:translate3d(-15px,20.25px,0)}
             40%{-webkit-transform:translate3d(-20px,36px,0)}
-            50%{-webkit-transform:translate3d(-25px,56.25px,0)}
+            50%{-webkit-transform:translate3d(-25px,56.25px,0)} 
             60%{-webkit-transform:translate3d(-30px,81px,0)}
             70%{-webkit-transform:translate3d(-35px,110.25px,0)}
             80%{-webkit-transform:translate3d(-40px,144px,0)}
             90%{-webkit-transform:translate3d(-45px,182.25,0)}
             100%{-webkit-transform:translate3d(-50px,225px,0)}
+        } 
+
+         @-webkit-keyframes pao150{
+            0%{-webkit-transform:translate3d(0px,0,0)}
+            10%{-webkit-transform:translate3d(5px,2.25px,0)}
+            25%{-webkit-transform:translate3d(10px,9px,0)}
+            35%{-webkit-transform:translate3d(15px,20.25px,0)}
+            50%{-webkit-transform:translate3d(20px,36px,0)}
+            65%{-webkit-transform:translate3d(25px,56.25px,0)}
+            80%{-webkit-transform:translate3d(30px,81px,0)}
+            90%{-webkit-transform:translate3d(35px,110.25px,0)}
+            100%{-webkit-transform:translate3d(40px,144px,0)}
         }  
 
-        .animg50{-webkit-animation:pao50 2s linear both;}
+        .animg50 {
+        	-webkit-animation:pao50 2s linear both;
+        }
+
+		.animg150 {
+        	-webkit-animation:pao150 2s linear both;
+		}
+
+        .dog {
+			position: absolute;
+			height: 120px;
+			width: 60px;
+			top: 205px;
+			left: 10px;
+			background: url(assets/images/shake/dog.png) no-repeat;
+			background-size: contain;
+        }
+
+        .desk {
+			position: absolute;
+			height: 200px;
+			width: 145px;
+			top: 100px;
+			left: 90px;
+			background: url(assets/images/shake/desk.png) no-repeat;
+			background-size: cover;
+        }
+
+        .cat {
+			position: absolute;
+			height: 120px;
+			width: 60px;
+			top: 225px;
+			/*left: 255px;*/
+			right: 10px;
+			background: url(assets/images/shake/cat.png) no-repeat;
+			background-size: contain;
+        }
+
+        .fish {
+			position: absolute;
+        	top: 80px;
+        	left: 135px;
+        	height: 30px;
+			width: 70px;
+        	background: url(assets/images/shake/fish.png) no-repeat;
+			background-size: contain;
+        }
+
+        .cat-get-fish {
+        	position: absolute;
+			height: 120px;
+			width: 80px;
+			top: 225px;
+			right: 5px;
+			background: url(assets/images/shake/cat_get_fish.png) no-repeat;
+			background-size: contain;
+        }
+
+
+		/*---------- 验证 ------------*/
+        .mask {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			background-color: rgba(0, 0, 0, .75);
+			z-index: 1000;
+		}
+
+		.toast {
+			margin: 0;
+			font-size: 25px;
+			text-align: center;
+			line-height: 330px;
+			color: white;
+			text-indent: 10px;
+		}
+
+		.yes {
+			background: url(assets/images/yes.png) no-repeat 80px 50%;
+			background-size: 30px;
+		}
+
+		.no {
+			background: url(assets/images/no.png) no-repeat 80px 50%;
+			background-size: 30px;
+		}
 	</style>
 </head>
 <body>
-	<div class="garden">
-  		<div class="ball"></div>
-  		<div class="table"></div>
-	</div>
-	<pre class="output"></pre>
-
 	<div class="shake-captcha">
 		<h3 class="hint">倾斜手机，喂小猫吃鱼</h3>
 		<!-- <button id="refresh">刷新</button> -->
+		<em class="fish"></em>
+		<em class="dog"></em>
+		<em class="desk"></em>
+		<em class="cat"></em>
+		<em class="cat-get-fish" style="display:none"></em>
 	</div>
+
+	<pre class="output"></pre>
 </body>
 <script src="assets/js/zepto.js"></script>
-<script src="assets/js/zepto.down.js"></script>
-<script src="assets/js/parabola.js"></script>
+<script src="assets/js/zepto.verify.js"></script>
 <script src="assets/js/shake.js"></script>
-<script>
-</script>
 </html>
