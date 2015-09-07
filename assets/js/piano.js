@@ -12,7 +12,7 @@
 	// 生成验证码
 	var generateCode = function() {
 		code = '';
-		for (var i = 0; i < 7; i++) {
+		for (var i = 0; i < 4; i++) {
 			code += rand9();
 		}
 		return code;
@@ -83,7 +83,7 @@
 
 				keyboard.play();
 
-				if (count < 7) {
+				if (count < 4) {
 					if (note != code.charAt(count)) {
 						count = 0;
 						setTimeout(function() {
@@ -96,7 +96,7 @@
 				}
 
 				// 等按七个键就出现成功
-				if (count == 7) {
+				if (count == 4) {
 					setTimeout(function() {
 						$pianoCaptcha.trigger('success')
 					}, 500);
