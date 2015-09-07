@@ -6,20 +6,22 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
 	<style>
 		.washer-captcha {
-			width: 90%;
+			width: 100%;
 			margin: 0 auto;
-			height: 400px;
+			height: 320px;
 			background-color: rgb(243, 243, 243);
 			position: relative;
 		}
 
 		.hint {
+			margin: 0;
 			margin-left: 30px;
-			padding-top: 30px;
+			padding-top: 15px;
 		}
 
 		.clothes {
 			list-style: none;
+			margin: 0;
 		}
 
 		.clothes li {
@@ -32,12 +34,12 @@
 
 		.clothes .dress {
 			background: url(assets/images/washer/dress.png) no-repeat;
-			top: 90px;
+			top: 60px;
 		}
 
 		.clothes .pants {
 			background: url(assets/images/washer/pants.png) no-repeat;
-			top: 240px;
+			top: 210px;
 		}
 
 		.washer {
@@ -47,7 +49,8 @@
 			width: 150px;
 			position: absolute;
 			top: 90px;
-			left: 48%;
+			/*left: 48%;*/
+			right: 20px;
 		}
 
 		@-webkit-keyframes gripAnim {
@@ -141,11 +144,11 @@
 		.washer-rotate {
 			background: url(assets/images/washer/washer_rotate.png) no-repeat;
 			background-size: cover;
-			height: 90px;
-			width: 90px;
+			height: 99px;
+			width: 99px;
 			position: absolute;
-			top: 157px;
-			left: 57%;
+			top: 64px;
+			left: 25px;
 		}
 
 		.rotate {
@@ -193,9 +196,10 @@
 			<li class="pants dragable"></li>
 		</ul>
 		<!-- 洗衣机 -->
-		<em class="washer"></em>
-		<!-- 验证 -->
-		<em style="display:none" class="washer-rotate"></em>
+		<div class="washer">
+			<!-- 验证 -->
+			<em class="washer-rotate"></em>
+		</div>
 		<div style="display: none" class="mask">
 			<h4 class="yes toast">验证成功</h4>
 			<h4 style="display: none" class="no toast">验证失败</h4>

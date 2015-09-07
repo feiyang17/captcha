@@ -5,6 +5,19 @@
 	<title>Piano</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
 	<style>
+		.piano-captcha {
+			width: 100%;
+			margin: 0 auto;
+			height: 330px;
+			background-color: rgb(243, 243, 243);
+			position: relative;
+			padding-top: 5px;
+		}
+
+		.hint {
+			padding-left: 15px;
+		}
+
 		.piano {
 			list-style: none;
 			background-color: #f07163;
@@ -15,73 +28,112 @@
 
 		.piano li {
 			display: inline-block;
-			height: 140px;
-			width: 62px;
-			/*border: 1px solid;*/
+			/*height: 140px;*/
+			/*width: 62px;*/
+			height: 80px;
+			width: 35px;
 			background-color: #FFF;
-			font-size: 30px;
+			font-size: 20px;
+			font-weight: bold;
+			line-height: 130px;
+			vertical-align: bottom;
 		}
 
 		.piano .black {
 			position: absolute;
 			background-color: #030303;
 			color: white;
-			height: 100px;
-			width: 38px;
-			border: 12px solid #f07163;
+			height: 60px;
+			width: 25px;
+			border: 5px solid #f07163;
+			line-height: 90px;
+			vertical-align: bottom;
 		}
 
 		.black1 {
 			top: 0;
-			left: 120px;
+			left: 54px;
 		}
 	
 		.black2 {
 			top: 0;
-			left: 195px;
+			left: 97px;
 		}
 
 		.black3 {
 			top: 0;
-			left: 330px;
+			left: 183px;
 		}
 
 		.black4 {
 			top: 0;
-			left: 405px;
+			left: 226px;
 		}
 
 		.black5 {
 			top: 0;
-			left: 477px;
+			left: 270px;
 		}
 
 		.piano .active {
 			background-color: #ccc;
 		}
+
+		/*---------- 验证 ------------*/
+        .mask {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			background-color: rgba(0, 0, 0, .75);
+			z-index: 1000;
+		}
+
+		.toast {
+			margin: 0;
+			font-size: 25px;
+			text-align: center;
+			line-height: 330px;
+			color: white;
+			text-indent: 10px;
+		}
+
+		.yes {
+			background: url(assets/images/yes.png) no-repeat 80px 50%;
+			background-size: 30px;
+		}
+
+		.no {
+			background: url(assets/images/no.png) no-repeat 80px 50%;
+			background-size: 30px;
+		}
 	</style>
 </head>
 <body>
-	<h3>请在琴键上弹出 <em>1234567</em></h3>
-	<ul class="piano">
-		<!-- 白键 -->
-		<li data-index="0"><audio class="keyboard" src="assets/media/1.mp3"></audio>1</li>
-		<li data-index="1"><audio class="keyboard" src="assets/media/2.mp3"></audio>2</li>
-		<li data-index="2"><audio class="keyboard" src="assets/media/3.mp3"></audio>3</li>
-		<li data-index="3"><audio class="keyboard" src="assets/media/4.mp3"></audio>4</li>
-		<li data-index="4"><audio class="keyboard" src="assets/media/5.mp3"></audio>5</li>
-		<li data-index="5"><audio class="keyboard" src="assets/media/6.mp3"></audio>6</li>
-		<li data-index="6"><audio class="keyboard" src="assets/media/7.mp3"></audio>7</li>
+	<div class="piano-captcha">
+		<h3 class="hint">请在琴键上弹出 <i id="code"></i></h3>
+		<ul class="piano">
+			<!-- 白键 -->
+			<li data-index="1"><audio class="keyboard" src="assets/media/1.mp3"></audio>1</li>
+			<li data-index="2"><audio class="keyboard" src="assets/media/2.mp3"></audio>2</li>
+			<li data-index="3"><audio class="keyboard" src="assets/media/3.mp3"></audio>3</li>
+			<li data-index="4"><audio class="keyboard" src="assets/media/4.mp3"></audio>4</li>
+			<li data-index="5"><audio class="keyboard" src="assets/media/5.mp3"></audio>5</li>
+			<li data-index="6"><audio class="keyboard" src="assets/media/6.mp3"></audio>6</li>
+			<li data-index="7"><audio class="keyboard" src="assets/media/7.mp3"></audio>7</li>
 
-		<!-- 黑键 -->
-		<li class="black black1" data-index="-1"><audio class="keyboard" src=""></audio></li>
-		<li class="black black2" data-index="8"><audio class="keyboard" src="assets/media/8.mp3"></audio>8</li>
-		<li class="black black3" data-index="9"><audio class="keyboard" src="assets/media/9.mp3"></audio>9</li>
-		<li class="black black4" data-index="0"><audio class="keyboard" src="assets/media/0.mp3"></audio>0</li>
-		<li class="black black5" data-index="-1"><audio class="keyboard" src=""></audio></li>
-	</ul>
+			<!-- 黑键 -->
+			<li class="black black2" data-index="8"><audio class="keyboard" src="assets/media/8.mp3"></audio>8</li>
+			<li class="black black3" data-index="9"><audio class="keyboard" src="assets/media/9.mp3"></audio>9</li>
+			<li class="black black4" data-note="0" data-index="10"><audio class="keyboard" src="assets/media/0.mp3"></audio>0</li>
+			<li class="black black1" data-index="-1"><audio class="keyboard" src=""></audio></li>
+			<li class="black black5" data-index="-1"><audio class="keyboard" src=""></audio></li>
+		</ul>
+	</div>
 </body>
 <script src="assets/js/zepto.js"></script>
 <script src="assets/js/zepto.touch.js"></script>
+<script src="assets/js/zepto.verify.js"></script>
 <script src="assets/js/piano.js"></script>
 </html>

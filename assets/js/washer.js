@@ -9,8 +9,8 @@
 		range: {
 			up: 0,
 			left: 0,
-			down: 375,
-			right: 260
+			down: 200,
+			right: 280
 		}
 	});
 
