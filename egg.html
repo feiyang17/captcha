@@ -5,7 +5,7 @@
 	<title>Catch the Egg</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
 	<style>
-		.hint {
+		.msg {
 			margin: 0;
 			padding-top: 20px;
 			padding-left: 20px;
@@ -20,6 +20,16 @@
 			position: relative;
 		}
 
+		.hen {
+			position: absolute;
+			height: 110px;
+			width: 105px;
+			top: 5px;
+			right: 20px;
+			background: url(assets/images/egg/hen.png) no-repeat;
+			background-size: contain;
+		}
+
 		.egg {
 			position: absolute;
 			height: 40px;
@@ -28,16 +38,6 @@
 			background-size: cover;
 			right: 30px;
 			top: 100px;
-		}
-
-		.hen {
-			position: absolute;
-			height: 120px;
-			width: 130px;
-			top: 0;
-			right: 20px;
-			background: url(assets/images/egg/hen.png) no-repeat;
-			background-size: cover;
 		}
 
 		.egg-broken {
@@ -65,38 +65,12 @@
 			background-size: contain;
 		}
 
-		.mask {
-			position: absolute;
-			top: 0;
-			left: 0;
-			height: 100%;
-			width: 100%;
-			background-color: rgba(0, 0, 0, .75);
-		}
-
-		.toast {
-			margin: 0;
-			font-size: 25px;
-			text-align: center;
-			line-height: 320px;
-			color: white;
-			text-indent: 10px;
-		}
-
-		.yes {
-			background: url(assets/images/yes.png) no-repeat 80px 50%;
-			background-size: 30px;
-		}
-
-		.no {
-			background: url(assets/images/no.png) no-repeat 80px 50%;
-			background-size: 30px;
-		}
 	</style>
+	<link rel="stylesheet" href="assets/css/common.css">
 </head>
 <body>
 	<div class="egg-captcha">
-		<h3 class="hint">请拖动篮子接鸡蛋</h3>
+		<h3 class="msg">请拖动篮子接鸡蛋</h3>
 		<em class="hen"></em>
 		<em class="egg"></em>
 		<em class="basket dragable"></em>

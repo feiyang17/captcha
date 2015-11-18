@@ -1,4 +1,6 @@
 /**
+ * @author monkindey
+ * @update 2015.11.18
  * 自我感觉是写的很乱
  * 总是在想如何实现？而不是如何完善
  */
@@ -81,11 +83,11 @@
 		range: {
 			up: 0,
 			left: 0,
-			// down: eggCaptchaOffset.height - basketInitHeight,
+			down: eggCaptchaOffset.height - basketInitHeight,
 			// 这个实现不好，不过先实现出来吧
-			down: 375,
-			// right: eggCaptchaOffset.width - $basket.offset().width
-			right: 230
+			// down: 375,
+			right: eggCaptchaOffset.width - $basket.offset().width
+			// right: 280
 		}
 	});
 

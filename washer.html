@@ -5,6 +5,15 @@
 	<title>washer</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
 	<style>
+		body {
+			margin: 0;
+		}
+
+		ul {
+			list-style: none;
+			margin: 0;
+		}
+
 		.washer-captcha {
 			width: 100%;
 			margin: 0 auto;
@@ -13,40 +22,32 @@
 			position: relative;
 		}
 
-		.hint {
-			margin: 0;
-			margin-left: 30px;
-			padding-top: 15px;
-		}
-
-		.clothes {
-			list-style: none;
-			margin: 0;
-		}
-
 		.clothes li {
 			position: absolute;
-			height: 120px;
-			width: 86px;
+			width: 80px;
 			z-index: 999;
 			/*border: 1px solid;*/
 		}
 
 		.clothes .dress {
 			background: url(assets/images/washer/dress.png) no-repeat;
+			background-size: contain;
+			height: 100px;
 			top: 60px;
 		}
 
 		.clothes .pants {
 			background: url(assets/images/washer/pants.png) no-repeat;
+			background-size: contain;
+			height: 90px;
 			top: 210px;
 		}
 
 		.washer {
 			background: url(assets/images/washer/washer.png) no-repeat;
-			background-size: cover;
-			height: 200px;
-			width: 150px;
+			background-size: contain;
+			height: 180px;
+			width: 140px;
 			position: absolute;
 			top: 90px;
 			/*left: 48%;*/
@@ -143,12 +144,12 @@
 		/*洗衣机转动*/
 		.washer-rotate {
 			background: url(assets/images/washer/washer_rotate.png) no-repeat;
-			background-size: cover;
-			height: 99px;
-			width: 99px;
+			background-size: contain;
+			height: 95px;
+			width: 95px;
 			position: absolute;
-			top: 64px;
-			left: 25px;
+			top: 54px;
+			left: 19px;
 		}
 
 		.rotate {
@@ -156,40 +157,12 @@
 			animation: rotateAnim 4s infinite;
 		}
 
-		.mask {
-			position: absolute;
-			top: 0;
-			left: 0;
-			height: 100%;
-			width: 100%;
-			background-color: rgba(0, 0, 0, .75);
-			z-index: 1000;
-		}
-
-		.toast {
-			margin: 0;
-			font-size: 25px;
-			text-align: center;
-			line-height: 320px;
-			color: white;
-			text-indent: 10px;
-		}
-
-		.yes {
-			background: url(assets/images/yes.png) no-repeat 75px 50%;
-			background-size: 30px;
-		}
-
-		.no {
-			background: url(assets/images/no.png) no-repeat 75px 50%;
-			background-size: 30px;
-		}
-
 	</style>
+	<link rel="stylesheet" href="assets/css/common.css">
 </head>
 <body>
 	<div class="washer-captcha">
-		<h3 class="hint">请将裙子放在洗衣机里</h3>
+		<h3 class="msg">请将裙子放在洗衣机里</h3>
 		<!-- <button id="refresh">刷新</button> -->
 		<ul class="clothes">
 			<li class="dress dragable"></li>
