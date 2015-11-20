@@ -2,7 +2,6 @@
  * @author monkindey
  * @update 2015.11.18
  * 自我感觉是写的很乱
- * 总是在想如何实现？而不是如何完善
  */
 (function($) {
 	var $egg = $('.egg');
@@ -52,13 +51,12 @@
 
 	// 接到鸡蛋了
 	var getEgg = function() {
-		$basket.addClass('get-egg');
 		// 因为装有鸡蛋图片跟只有篮子的图片高度上不同
 		// 会导致在切换图片的时候Y轴位置会改变
 		// 这个方法不是好方法
 		$basket.css({
-			top: $basket.offset().top - 25 + 'px'
-		});
+			top: $basket.offset().top - 26 + 'px'
+		}).addClass('get-egg');
 	};
 
 	// 接鸡蛋

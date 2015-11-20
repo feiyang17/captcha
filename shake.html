@@ -4,7 +4,15 @@
 	<meta charset="UTF-8">
 	<title>Shake</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/common.css">
 	<style>
+		.msg {
+			margin: 0;
+			padding-top: 20px;
+			padding-left: 20px;
+			color: rgb(140, 136, 135);
+		}
+
 		.shake-captcha {
 			width: 100%;
 			margin: 0 auto;
@@ -14,11 +22,6 @@
 			position: relative;
 			padding-top: 5px;
 			/*padding-left: 15px;*/
-		}
-
-		.hint {
-			color: rgb(140, 136, 135);
-			margin-left: 15px;
 		}
 
 		@-webkit-keyframes pao50{
@@ -44,7 +47,7 @@
 			65%{-webkit-transform:translate3d(25px,56.25px,0)}
 			80%{-webkit-transform:translate3d(30px,81px,0)}
 			90%{-webkit-transform:translate3d(35px,110.25px,0)}
-			100%{-webkit-transform:translate3d(40px,144px,0)}
+			100%{-webkit-transform:translate3d(40px,170px,0)}
 		}  
 
         .animg50 {
@@ -106,50 +109,17 @@
 			background-size: contain;
         }
 
-
-		/*---------- 验证 ------------*/
-        .mask {
-			position: absolute;
-			top: 0;
-			left: 0;
-			height: 100%;
-			width: 100%;
-			background-color: rgba(0, 0, 0, .75);
-			z-index: 1000;
-		}
-
-		.toast {
-			margin: 0;
-			font-size: 25px;
-			text-align: center;
-			line-height: 320px;
-			color: white;
-			text-indent: 10px;
-		}
-
-		.yes {
-			background: url(assets/images/yes.png) no-repeat 80px 50%;
-			background-size: 30px;
-		}
-
-		.no {
-			background: url(assets/images/no.png) no-repeat 80px 50%;
-			background-size: 30px;
-		}
 	</style>
 </head>
 <body>
 	<div class="shake-captcha">
-		<h3 class="hint">左右倾斜手机，喂小猫吃鱼</h3>
-		<!-- <button id="refresh">刷新</button> -->
+		<h3 class="msg">左右倾斜手机，喂小猫吃鱼</h3>
 		<em class="fish"></em>
 		<em class="dog"></em>
 		<em class="desk"></em>
 		<em class="cat"></em>
 		<em class="cat-get-fish" style="display:none"></em>
 	</div>
-
-	<pre class="output"></pre>
 </body>
 <script src="assets/js/zepto.js"></script>
 <script src="assets/js/zepto.verify.js"></script>

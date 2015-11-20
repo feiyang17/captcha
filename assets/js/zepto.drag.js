@@ -23,6 +23,9 @@
 					touchOffsetEdgeY = touch.pageY - draggedItemOffset.top;
 					console.log('touchOffsetEdgeX' + touchOffsetEdgeX + 'touchOffsetEdgeY' + touchOffsetEdgeY);
 					$draggedItem.trigger('dragStart');
+
+					e.preventDefault();
+					e.stopPropagation();
 				},
 
 				'touchmove': function(e) {
@@ -35,7 +38,7 @@
 					// if (draggedItemY < range.down && draggedItemY > range.up &&
 					// 	draggedItemX > range.left && draggedItemX < range.right) {
 					// }
-					
+
 					// if(draggedItemY > range.down) {
 					// 	$draggedItem.css('top', range.down + 'px');
 					// }
@@ -57,14 +60,19 @@
 						'left': left + 'px',
 						'top': top + 'px'
 					});
-					
+
 					$draggedItem.trigger('drag');
+					e.preventDefault();
+					e.stopPropagation();
 				},
 
-				'touchend': function() {
+				'touchend': function(e) {
 					$draggedItem.trigger('dragEnd');
+					e.preventDefault();
+					e.stopPropagation();
 				}
 			})
 		});
+
 	}
 })(Zepto)

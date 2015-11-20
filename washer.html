@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>washer</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/common.css">
 	<style>
 		html, body {
 			width: 100%;			
@@ -46,6 +47,13 @@
 			position: absolute;
 			top: 90px;
 			right: 20px;
+		}
+
+		@media (max-width: 320px) {
+			.clothes li {
+			 	-webkit-padding-start: 20px;
+			 	left: 20px;
+			}
 		}
 
 		@-webkit-keyframes gripAnim {
@@ -152,7 +160,6 @@
 		}
 
 	</style>
-	<link rel="stylesheet" href="assets/css/common.css">
 </head>
 <body>
 	<div class="washer-captcha">
@@ -175,6 +182,7 @@
 </body>
 <script src="assets/js/zepto.js"></script>
 <script src="assets/js/zepto.drag.js"></script>
+<!-- <script src="assets/js/zepto.dragdrop.js"></script> -->
 <script src="assets/js/washer.js"></script>
 <script>
 	// $('#refresh').click(function() {
