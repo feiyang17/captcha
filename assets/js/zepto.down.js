@@ -1,4 +1,4 @@
-/**
+  /**
  * @author monkindey
  * @date 2015.9.1
  * @description 下降物体
@@ -14,7 +14,7 @@
  */
 
 (function($) {
-	var DOWN_TIME_GAP = 10;
+	var DOWN_TIME_GAP = 20;
 
 	$.fn.down = function(options) {
 		// 这个项目中是指下落的鸡蛋

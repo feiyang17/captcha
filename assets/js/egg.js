@@ -3,6 +3,7 @@
  * @update 2015.11.18
  * 自我感觉是写的很乱
  */
+
 (function($) {
 	var $egg = $('.egg');
 	var $basket = $('.basket');
@@ -16,9 +17,12 @@
 
 	// 显示验证成功
 	var success = function() {
-		$('.mask').show();
-		$('.yes').show();
-		$('.no').hide();
+		$('#egg-success').show().addClass('show');
+		$('#egg-failure').hide();
+
+		// $('.mask').show();
+		// $('.yes').show();
+		// $('.no').hide();
 		// 与webview交互
 		try {
 			return control.toastMessage(1);
@@ -28,9 +32,18 @@
 
 	// 显示验证失败
 	var fail = function() {
-		$('.mask').show();
-		$('.no').show();
-		$('.yes').hide();
+		$('#egg-failure').show().addClass('show');
+		$('#egg-success').hide();
+
+		var captchas = ['egg', 'shake', 'washer', 'piano'];
+		setTimeout(function() {
+			var random = parseInt(Math.random() * 4);
+			window.location.href = captchas[random] + '.html';
+		}, 1000);
+
+		// $('.mask').show();
+		// $('.no').show();
+		// $('.yes').hide();
 		try {
 			return control.toastMessage(0);
 		} catch (e) {}
@@ -55,8 +68,9 @@
 		// 会导致在切换图片的时候Y轴位置会改变
 		// 这个方法不是好方法
 		$basket.css({
-			top: $basket.offset().top - 26 + 'px'
-		}).addClass('get-egg');
+			top: $basket.offset().top + 'px'
+		});
+		$basket.addClass('get-egg');
 	};
 
 	// 接鸡蛋
@@ -85,7 +99,7 @@
 			// 这个实现不好，不过先实现出来吧
 			// down: 375,
 			right: eggCaptchaOffset.width - $basket.offset().width
-			// right: 280
+				// right: 280
 		}
 	});
 
@@ -102,5 +116,10 @@
 		});
 	});
 
+	$('.refresh').on('click', function() {
+		var captchas = ['egg', 'shake', 'washer', 'piano'];
+		var random = parseInt(Math.random() * 4);
+		window.location.href = captchas[random] + '.html';
+	});
 
 })(Zepto)

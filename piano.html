@@ -4,47 +4,45 @@
 	<meta charset="UTF-8">
 	<title>Piano</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/common.css">
 	<style>
 		.piano-captcha {
-			width: 100%;
-			margin: 0 auto;
-			height: 320px;
 			background-color: rgb(243, 243, 243);
-			position: relative;
 			padding-top: 5px;
 		}
 
-		.hint {
-			padding-left: 15px;
+		#code {
+			color: #3d67a6;
+			font-style: normal;
 		}
 
 		.piano {
-			list-style: none;
 			background-color: #f07163;
 			padding: 20px;
 			text-align: center;
 			position: relative;
+			margin-top: 50px;
+			font-size: 0;
 		}
 
 		.piano li {
 			display: inline-block;
-			/*height: 140px;*/
-			/*width: 62px;*/
-			height: 80px;
-			width: 35px;
+			height: 120px;
+			width: 12.5%;
 			background-color: #FFF;
 			font-size: 20px;
 			font-weight: bold;
-			line-height: 130px;
+			line-height: 170px;
 			vertical-align: bottom;
+			margin-left: 5px;
 		}
 
 		.piano .black {
 			position: absolute;
 			background-color: #030303;
 			color: white;
-			height: 60px;
-			width: 25px;
+			height: 80px;
+			width: 8.5%;
 			border: 5px solid #f07163;
 			line-height: 90px;
 			vertical-align: bottom;
@@ -52,39 +50,47 @@
 
 		.black1 {
 			top: 0;
-			left: 54px;
+			left: 12%;
 		}
 	
 		.black2 {
 			top: 0;
-			left: 97px;
+			left: 25%;
 		}
 
 		.black3 {
 			top: 0;
-			left: 183px;
+			left: 49.4%;
 		}
 
 		.black4 {
 			top: 0;
-			left: 226px;
+			left: 62.2%;
 		}
 
 		.black5 {
 			top: 0;
-			left: 270px;
+			left: 75%;
 		}
 
 		.piano .active {
 			background-color: #ccc;
 		}
 
+		#piano-success {
+			left: 35%;
+			bottom: -6%;
+		}
+
+		#piano-failure {
+			left: 35%;
+			bottom: -6%;
+		}
 	</style>
-	<link rel="stylesheet" href="assets/css/common.css">
 </head>
 <body>
-	<div class="piano-captcha">
-		<h3 class="hint">请在琴键上弹出 <i id="code"></i></h3>
+	<div class="piano-captcha captcha">
+		<h3 class="msg">请在琴键上弹出 <i id="code"></i> <span class="refresh">刷新</span></h3>
 		<ul class="piano">
 			<!-- 白键 -->
 			<li data-index="1"><audio class="keyboard" src="assets/media/1.mp3"></audio>1</li>

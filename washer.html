@@ -6,16 +6,8 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/common.css">
 	<style>
-		html, body {
-			width: 100%;			
-		}
-
 		.washer-captcha {
-			width: 100%;
-			margin: 0 auto;
-			height: 320px;
 			background-color: rgb(243, 243, 243);
-			position: relative;
 		}
 
 		.clothes li {
@@ -85,8 +77,8 @@
 		}
 
 		.grip {
-			-webkit-animation: gripAnim 2s;
-			animation: gripAnim 2s;
+			-webkit-animation: gripAnim .8s;
+			animation: gripAnim .8s;
 		}
 
 		@-webkit-keyframes rotateAnim {
@@ -159,11 +151,21 @@
 			animation: rotateAnim 4s infinite;
 		}
 
+		#washer-success {
+			left: 20%;
+			top: 25%;
+		}
+
+		#washer-failure {
+			left: 20%;
+			top: 25%;
+		}
+
 	</style>
 </head>
 <body>
-	<div class="washer-captcha">
-		<h3 class="msg">请将裙子放在洗衣机里</h3>
+	<div class="washer-captcha captcha">
+		<h3 class="msg">请将裙子放在洗衣机里 <span class="refresh">刷新</span></h3>
 		<!-- <button id="refresh">刷新</button> -->
 		<ul class="clothes">
 			<li class="dress dragable"></li>
@@ -174,10 +176,15 @@
 			<!-- 验证 -->
 			<em class="washer-rotate"></em>
 		</div>
-		<div style="display: none" class="mask">
+		<!-- success -->
+		<em id="washer-success" class="success" style="display:none"></em>
+		<!-- failure -->
+		<em id="washer-failure" class="failure" style="display:none"></em>
+		
+		<!-- <div style="display: none" class="mask">
 			<h4 class="yes toast">验证成功</h4>
 			<h4 style="display: none" class="no toast">验证失败</h4>
-		</div>
+		</div> -->
 	</div>
 </body>
 <script src="assets/js/zepto.js"></script>

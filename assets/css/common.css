@@ -8,10 +8,7 @@ ul {
 }
 
 .captcha {
-	width: 100%;
-	margin: 0 auto;
 	height: 320px;
-	background-color: rgb(243, 243, 243);
 	position: relative;
 }
 
@@ -19,8 +16,10 @@ ul {
 	margin: 0;
 	padding-top: 20px;
 	padding-left: 20px;
+	color: #969696;
 }
 
+/*验证第一版本*/
 .mask {
 	position: absolute;
 	top: 0;
@@ -28,6 +27,7 @@ ul {
 	height: 100%;
 	width: 100%;
 	background-color: rgba(0, 0, 0, .75);
+	z-index: 1000;
 }
 
 .toast {
@@ -48,4 +48,34 @@ ul {
 .no {
 	background: url(../images/no.png) no-repeat 28% 50%;
 	background-size: 30px;
+}
+
+/*验证第二版本*/
+.success, .failure {
+	position: absolute;
+	height: 150px;
+	width: 150px;
+	-webkit-transform: scale(1.5);
+	z-index: 1000;
+}
+
+.success.show, .failure.show {
+	-webkit-animation:show .2s ease-in both;
+}
+
+@-webkit-keyframes show{
+	0% {}
+	50% { -webkit-transform: scale(.75);}
+	75% { -webkit-transform: scale(.8);}
+	100% { -webkit-transform: scale(.75);}
+} 
+
+.success {
+	background: url(../images/success.png) no-repeat 28% 50%;
+	background-size: contain;
+}
+
+.failure {
+	background: url(../images/failure.png) no-repeat 28% 50%;
+	background-size: contain;
 }

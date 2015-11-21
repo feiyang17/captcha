@@ -1,0 +1,385 @@
+.captcha-slider {
+	height: 320px;
+	overflow: hidden;
+	position: relative;
+	white-space: nowrap;
+}
+
+.captcha-list {
+	height: 100%;
+	width: 100%;
+	left: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 0;
+	position: relative;
+	-webkit-transition: -webkit-transform, 1s, ease-in;
+	/*overflow: hidden;*/
+}
+
+.captcha-list li {
+	width: 100%;
+	font-size: 14px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+/*1. 洗衣机*/
+.washer-captcha {
+	background-color: rgb(243, 243, 243);
+}
+
+.clothes li {
+	position: absolute;
+	width: 80px;
+	z-index: 999;
+}
+
+.clothes .dress {
+	background: url(../images/washer/dress.png) no-repeat;
+	background-size: contain;
+	height: 100px;
+	top: 60px;
+}
+
+.clothes .pants {
+	background: url(../images/washer/pants.png) no-repeat;
+	background-size: contain;
+	height: 90px;
+	top: 210px;
+}
+
+.washer {
+	background: url(../images/washer/washer.png) no-repeat;
+	background-size: contain;
+	height: 180px;
+	width: 140px;
+	position: absolute;
+	top: 90px;
+	right: 20px;
+}
+
+@media (max-width: 320px) {
+	.clothes li {
+	 	-webkit-padding-start: 20px;
+	 	left: 20px;
+	}
+}
+
+/*衣服被吸进去的动画效果*/
+@-webkit-keyframes gripAnim {
+	0% {
+		opacity: 1;
+		-webkit-transform: scale(1); 
+		transform: scale(1);
+	}
+
+	100% {
+		-webkit-transform: scale(0); 
+		transform: scale(0);
+		opacity: 0;
+	}
+}
+
+@keyframes gripAnim {
+	0% {
+		opacity: 1;
+		-webkit-transform: scale(1); 
+		transform: scale(1);
+	}
+
+	100% {
+		opacity: 0;
+		-webkit-transform: scale(0); 
+		transform: scale(0);
+	}
+}
+
+.grip {
+	-webkit-animation: gripAnim .8s;
+	animation: gripAnim .8s;
+}
+
+@-webkit-keyframes rotateAnim {
+	0% {
+		-webkit-transform: rotate(0); 
+		transform: rotate(0);
+	}
+
+	25% {
+		-webkit-transform: rotate(180deg); 
+		transform: rotate(180deg);
+	}
+
+	50% {
+		-webkit-transform: rotate(0); 
+		transform: rotate(0);
+	}
+
+	75% {
+		-webkit-transform: rotate(-180deg); 
+		transform: rotate(-180deg);
+	}
+
+	100% {
+		-webkit-transform: rotate(0); 
+		transform: rotate(0);
+	}
+}
+
+@keyframes rotateAnim {
+	0% {
+		-webkit-transform: rotate(0); 
+		transform: rotate(0);
+	}
+
+	25% {
+		-webkit-transform: rotate(180deg); 
+		transform: rotate(180deg);
+	}
+
+	50% {
+		-webkit-transform: rotate(0); 
+		transform: rotate(0);
+	}
+
+	75% {
+		-webkit-transform: rotate(-180deg); 
+		transform: rotate(-180deg);
+	}
+
+	100% {
+		-webkit-transform: rotate(0); 
+		transform: rotate(0);
+	}
+}
+
+/*洗衣机转动*/
+.washer-rotate {
+	background: url(../images/washer/washer_rotate.png) no-repeat;
+	background-size: contain;
+	height: 95px;
+	width: 95px;
+	position: absolute;
+	top: 54px;
+	left: 19px;
+}
+
+.rotate {
+	-webkit-animation: rotateAnim 4s infinite;
+	animation: rotateAnim 4s infinite;
+}
+
+/*2. 接鸡蛋*/
+.egg-captcha {
+	background: url(../images/egg/ground.png) no-repeat 0% 100%;
+	background-color: #afd08b;
+}
+
+.hen {
+	position: absolute;
+	height: 110px;
+	width: 105px;
+	top: 5px;
+	right: 20px;
+	background: url(../images/egg/hen.png) no-repeat;
+	background-size: contain;
+}
+
+.egg {
+	position: absolute;
+	height: 40px;
+	width: 30px;
+	background: url(../images/egg/egg.png) no-repeat;
+	background-size: cover;
+	right: 30px;
+	top: 100px;
+}
+
+.egg-broken {
+	position: absolute;
+	height: 35px;
+	width: 70px;
+	background: url(../images/egg/egg_broken.png) no-repeat;
+	background-size: cover;
+	right: 30px;
+	bottom: 0;
+}
+
+.basket {
+	position: absolute;
+	width: 105px;
+	height: 55px;
+	background: url(../images/egg/basket.png) no-repeat;
+	background-size: cover;
+	bottom: 10px;
+	left: 5%;
+}
+
+.get-egg {
+	height: 70px;
+	background: url(../images/egg/basket_egg.png) no-repeat;
+	background-size: contain;
+}
+
+/*3. 重力感应*/
+.shake-captcha {
+	background: url(../images/shake/ground.png) no-repeat left bottom;
+	background-color: rgb(243, 243, 243);
+}
+
+@-webkit-keyframes pao50{
+	0%{-webkit-transform:translate3d(0px,0,0)}
+	10%{-webkit-transform:translate3d(-5px,2.25px,0)}
+	20%{-webkit-transform:translate3d(-10px,9px,0)}
+	30%{-webkit-transform:translate3d(-15px,20.25px,0)}
+	40%{-webkit-transform:translate3d(-20px,36px,0)}
+	50%{-webkit-transform:translate3d(-25px,56.25px,0)} 
+	60%{-webkit-transform:translate3d(-30px,81px,0)}
+	70%{-webkit-transform:translate3d(-35px,110.25px,0)}
+	80%{-webkit-transform:translate3d(-40px,144px,0)}
+	90%{-webkit-transform:translate3d(-45px,182.25,0)}
+	100%{-webkit-transform:translate3d(-50px,225px,0)}
+} 
+
+@-webkit-keyframes pao150{
+	0%{-webkit-transform:translate3d(0px,0,0)}
+	10%{-webkit-transform:translate3d(5px,2.25px,0)}
+	25%{-webkit-transform:translate3d(10px,9px,0)}
+	35%{-webkit-transform:translate3d(15px,20.25px,0)}
+	50%{-webkit-transform:translate3d(24px,36px,0)}
+	65%{-webkit-transform:translate3d(35px,56.25px,0)}
+	80%{-webkit-transform:translate3d(45px,81px,0)}
+	90%{-webkit-transform:translate3d(54px,110.25px,0)}
+	100%{-webkit-transform:translate3d(60px,160px,0)}
+}  
+
+.animg50 {
+	-webkit-animation:pao50 2s linear both;
+}
+
+.animg150 {
+	-webkit-animation:pao150 2s linear both;
+}
+
+.dog {
+	position: absolute;
+	height: 120px;
+	width: 60px;
+	top: 205px;
+	left: 10px;
+	background: url(../images/shake/dog.png) no-repeat;
+	background-size: contain;
+}
+
+.desk {
+	position: absolute;
+	height: 200px;
+	width: 145px;
+	top: 100px;
+	left: 90px;
+	background: url(../images/shake/desk.png) no-repeat;
+	background-size: cover;
+}
+
+.cat {
+	position: absolute;
+	height: 120px;
+	width: 60px;
+	top: 225px;
+	/*left: 255px;*/
+	right: 20px;
+	background: url(../images/shake/cat.png) no-repeat;
+	background-size: contain;
+}
+
+.fish {
+	position: absolute;
+	top: 80px;
+	left: 135px;
+	height: 30px;
+	width: 70px;
+	background: url(../images/shake/fish.png) no-repeat;
+	background-size: contain;
+}
+
+.cat-get-fish {
+	position: absolute;
+	height: 120px;
+	width: 80px;
+	top: 225px;
+	right: 15px;
+	background: url(../images/shake/cat_get_fish.png) no-repeat;
+	background-size: contain;
+}
+
+/*4. 弹钢琴*/
+.piano-captcha {
+	background-color: rgb(243, 243, 243);
+	padding-top: 5px;
+}
+
+.hint {
+	padding-left: 15px;
+}
+
+.piano {
+	list-style: none;
+	background-color: #f07163;
+	padding: 20px;
+	text-align: center;
+	position: relative;
+}
+
+.piano li {
+	display: inline-block;
+	/*height: 140px;*/
+	/*width: 62px;*/
+	height: 80px;
+	width: 35px;
+	background-color: #FFF;
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 130px;
+	vertical-align: bottom;
+}
+
+.piano .black {
+	position: absolute;
+	background-color: #030303;
+	color: white;
+	height: 60px;
+	width: 25px;
+	border: 5px solid #f07163;
+	line-height: 90px;
+	vertical-align: bottom;
+}
+
+.black1 {
+	top: 0;
+	left: 54px;
+}
+
+.black2 {
+	top: 0;
+	left: 97px;
+}
+
+.black3 {
+	top: 0;
+	left: 183px;
+}
+
+.black4 {
+	top: 0;
+	left: 226px;
+}
+
+.black5 {
+	top: 0;
+	left: 270px;
+}
+
+.piano .active {
+	background-color: #ccc;
+}

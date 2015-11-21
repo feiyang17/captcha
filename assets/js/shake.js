@@ -12,6 +12,8 @@
 		var x = event.beta; // In degree in the range [-180,180]
 		var y = event.gamma; // In degree in the range [-90,90]
 
+		console.log(event);
+
 		// output.innerHTML = "beta : " + x + "\n";
 		// output.innerHTML += "gamma: " + y + "\n";
 
@@ -59,20 +61,26 @@
 		}
 	}
 
+	$('.refresh').on('click', function() {
+		var captchas = ['egg', 'shake', 'washer', 'piano'];
+		var random = parseInt(Math.random() * 4);
+		window.location.href = captchas[random] + '.html';
+	});
+
 	$.verify({
 		target: '.shake-captcha',
-		content: '<h4 class="yes toast">验证成功</h4><h4 style="display: none" class="no toast">验证失败</h4>',
+		content: '',
 		initUI: function() {
-			this.target.append('<div class="mask" style="display: none"></div>');
-			this.target.find('.mask').append(this.content);
+			this.target.append('<em id="shake-success" class="success" style="display:none"></em>\
+				<em id="shake-failure" class="failure" style="display:none"></em>');
+			// this.target.find('.mask').append(this.content);
 		},
 		// 验证成功
 		success: function() {
-			console.log('success');
 			var target = this.target;
-			target.find('.mask').show();
-			target.find('.yes').show();
-			target.find('.no').hide();
+			$('#shake-success').show().addClass('show');
+			$('#shake-failure').hide();
+
 			try {
 				return control.toastMessage(1);
 			} catch (e) {}
@@ -81,9 +89,15 @@
 		failure: function() {
 			console.log('failure');
 			var target = this.target;
-			target.find('.mask').show();
-			target.find('.yes').hide();
-			target.find('.no').show();
+			$('#shake-failure').show().addClass('show');
+			$('#shake-success').hide();
+
+			var captchas = ['egg', 'shake', 'washer', 'piano'];
+			setTimeout(function() {
+				var random = parseInt(Math.random() * 4);
+				window.location.href = captchas[random] + '.html';
+			}, 1000);
+
 			// 与webview交互
 			try {
 				return control.toastMessage(0);

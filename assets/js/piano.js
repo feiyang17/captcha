@@ -24,29 +24,44 @@
 
 		$.verify({
 			target: '.piano-captcha',
-			content: '<h4 class="yes toast">验证成功</h4><h4 style="display: none" class="no toast">验证失败</h4>',
+			content: '',
 			initUI: function() {
-				this.target.append('<div class="mask" style="display: none"></div>');
-				this.target.find('.mask').append(this.content);
+				// this.target.append('<div class="mask" style="display: none"></div>');
+				// this.target.find('.mask').append(this.content);
+				this.target.append('<em id="piano-success" class="success" style="display:none"></em>\
+				<em id="piano-failure" class="failure" style="display:none"></em>');
 			},
 			// 验证成功
 			success: function() {
-				console.log('success');
+				// console.log('success');
 				var target = this.target;
-				target.find('.mask').show();
-				target.find('.yes').show();
-				target.find('.no').hide();
+				$('#piano-success').show().addClass('show');
+				$('#piano-failure').hide();
+
+				// target.find('.mask').show();
+				// target.find('.yes').show();
+				// target.find('.no').hide();
 				try {
 					return control.toastMessage(1);
 				} catch (e) {}
 			},
+
 			// 验证失败
 			failure: function() {
-				console.log('failure');
+				// console.log('failure');
 				var target = this.target;
-				target.find('.mask').show();
-				target.find('.yes').hide();
-				target.find('.no').show();
+				$('#piano-failure').show().addClass('show');
+				$('#piano-success').hide();
+
+				// target.find('.mask').show();
+				// target.find('.yes').hide();
+				// target.find('.no').show();
+
+				var captchas = ['egg', 'shake', 'washer', 'piano'];
+				setTimeout(function() {
+					var random = parseInt(Math.random() * 4);
+					window.location.href = captchas[random] + '.html';
+				}, 1000);
 				// 与webview交互
 				try {
 					return control.toastMessage(0);
@@ -56,6 +71,12 @@
 	};
 
 	var initEvent = function() {
+		$('.refresh').on('click', function() {
+			var captchas = ['egg', 'shake', 'washer', 'piano'];
+			var random = parseInt(Math.random() * 4);
+			window.location.href = captchas[random] + '.html';
+		});
+		
 		$('.piano li').on({
 			// 添加点击效果
 			'touchstart': function() {

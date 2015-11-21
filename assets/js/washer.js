@@ -16,9 +16,12 @@
 
 	// 显示验证成功
 	var success = function() {
-		$('.mask').show();
-		$('.yes').show();
-		$('.no').hide();
+		$('#washer-success').show().addClass('show');
+		$('#washer-failure').hide();
+		// $('.mask').show();
+		// $('.yes').show();
+		// $('.no').hide();
+		
 		// 与webview交互
 		try {
 			return control.toastMessage(1);
@@ -28,9 +31,18 @@
 
 	// 显示验证失败
 	var fail = function() {
-		$('.mask').show();
-		$('.no').show();
-		$('.yes').hide();
+		$('#washer-failure').show().addClass('show');
+		$('#washer-success').hide();
+		var captchas = ['egg', 'shake', 'washer', 'piano'];
+		setTimeout(function() {
+			var random = parseInt(Math.random() * 4);
+			window.location.href = captchas[random] + '.html';
+		}, 1000);
+		
+		// $('.mask').show();
+		// $('.no').show();
+		// $('.yes').hide();
+		
 		try {
 			return control.toastMessage(0);
 		} catch (e) {}
@@ -60,7 +72,7 @@
 			rotateWasher.show();
 			rotateWasher.addClass('rotate');
 
-			setTimeout(success, 100);
+			setTimeout(success, 1000);
 		}
 	});
 
@@ -71,5 +83,11 @@
 				setTimeout(fail, 100);
 			}
 		}
+	});
+
+	$('.refresh').on('click', function() {
+		var captchas = ['egg', 'shake', 'washer', 'piano'];
+		var random = parseInt(Math.random() * 4);
+		window.location.href = captchas[random] + '.html';
 	});
 })(Zepto)

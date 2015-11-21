@@ -6,22 +6,10 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/common.css">
 	<style>
-		.msg {
-			margin: 0;
-			padding-top: 20px;
-			padding-left: 20px;
-			color: rgb(140, 136, 135);
-		}
-
 		.shake-captcha {
-			width: 100%;
-			margin: 0 auto;
-			height: 320px;
 			background: url(assets/images/shake/ground.png) no-repeat left bottom;
 			background-color: rgb(243, 243, 243);
-			position: relative;
-			padding-top: 5px;
-			/*padding-left: 15px;*/
+			/*padding-top: 5px;*/
 		}
 
 		@-webkit-keyframes pao50{
@@ -43,11 +31,11 @@
 			10%{-webkit-transform:translate3d(5px,2.25px,0)}
 			25%{-webkit-transform:translate3d(10px,9px,0)}
 			35%{-webkit-transform:translate3d(15px,20.25px,0)}
-			50%{-webkit-transform:translate3d(20px,36px,0)}
-			65%{-webkit-transform:translate3d(25px,56.25px,0)}
-			80%{-webkit-transform:translate3d(30px,81px,0)}
-			90%{-webkit-transform:translate3d(35px,110.25px,0)}
-			100%{-webkit-transform:translate3d(40px,170px,0)}
+			50%{-webkit-transform:translate3d(24px,36px,0)}
+			65%{-webkit-transform:translate3d(35px,56.25px,0)}
+			80%{-webkit-transform:translate3d(45px,81px,0)}
+			90%{-webkit-transform:translate3d(54px,110.25px,0)}
+			100%{-webkit-transform:translate3d(60px,160px,0)}
 		}  
 
         .animg50 {
@@ -112,8 +100,8 @@
 	</style>
 </head>
 <body>
-	<div class="shake-captcha">
-		<h3 class="msg">左右倾斜手机，喂小猫吃鱼</h3>
+	<div class="shake-captcha captcha">
+		<h3 class="msg">左右倾斜手机，喂小猫吃鱼 <span class="refresh">刷新</span></h3>
 		<em class="fish"></em>
 		<em class="dog"></em>
 		<em class="desk"></em>

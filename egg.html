@@ -6,19 +6,9 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/common.css">
 	<style>
-		.msg {
-			margin: 0;
-			padding-top: 20px;
-			padding-left: 20px;
-		}
-
 		.egg-captcha {
-			width: 100%;
-			margin: 0 auto;
-			height: 320px;
 			background: url(assets/images/egg/ground.png) no-repeat 0% 100%;
-			background-color: #afd08b;
-			position: relative;
+			background-color: #d6edbc;
 		}
 
 		.hen {
@@ -54,10 +44,11 @@
 		.basket {
 			position: absolute;
 			width: 105px;
-			height: 35px;
+			height: 55px;
 			background: url(assets/images/egg/basket.png) no-repeat;
 			background-size: cover;
 			bottom: 10px;
+			left: 5%;
 		}
 
 		.get-egg {
@@ -65,31 +56,30 @@
 			background: url(assets/images/egg/basket_egg.png) no-repeat;
 			background-size: contain;
 		}
-
 	</style>
 </head>
 <body>
-	<div class="egg-captcha">
-		<h3 class="msg">请拖动篮子接鸡蛋</h3>
+	<div class="egg-captcha captcha">
+		<h3 class="msg">请拖动篮子接鸡蛋 <span class="refresh">刷新</span></h3>
 		<em class="hen"></em>
 		<em class="egg"></em>
 		<em class="basket dragable"></em>
 		<em style="display: none" class="egg-broken"></em>
-		<div style="display: none" class="mask">
+
+		<!-- success -->
+		<em id="egg-success" class="success" style="display:none"></em>
+		<!-- failure -->
+		<em id="egg-failure" class="failure" style="display:none"></em>
+
+		<!-- <div style="display: none" class="mask">
 			<h4 class="yes toast">验证成功</h4>
 			<h4 style="display: none" class="no toast">验证失败</h4>
-		</div>
+		</div> -->
 	</div>
 </body>
 <script src="assets/js/zepto.js"></script>
-<script src="assets/js/zepto.mask.js"></script>
+<!-- <script src="assets/js/zepto.mask.js"></script> -->
 <script src="assets/js/zepto.drag.js"></script>
 <script src="assets/js/zepto.down.js"></script>
 <script src="assets/js/egg.js"></script>
-<script>
-	// $.mask({
-	// 	origin: '.egg-captcha',
-	// 	content: '<h4 class="no toast">验证失败</h4>',
-	// });
-</script>
 </html>

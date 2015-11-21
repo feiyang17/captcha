@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>captcha</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/common.css">
+	<link rel="stylesheet" href="assets/css/index.css">
+</head>
+<body>
+	<div class="captcha-slider">
+		<ul class="captcha-list">
+
+			<!-- 1. 洗衣机验证码 -->
+			<li id="washer" class="washer-captcha captcha">
+				<h3 class="msg">请将裙子放在洗衣机里<button class="refresh" data-next=1>刷新</button></h3>
+				<ul class="clothes">
+					<li class="dress dragable"></li>
+					<li class="pants dragable"></li>
+				</ul>
+				<!-- 洗衣机 -->
+				<div class="washer">
+					<!-- 验证 -->
+					<em class="washer-rotate"></em>
+				</div>
+				<!-- success -->
+				<em id="washer-success" class="success" style="display:none"></em>
+				<!-- failure -->
+				<em id="washer-failure" class="failure" style="display:none"></em>
+			</li>
+
+			<!-- 2. 接鸡蛋验证码 -->
+			<li id="egg" class="egg-captcha captcha">
+				<h3 class="msg">请拖动篮子接鸡蛋<button class="refresh"  data-next=2>刷新</button></h3>
+				<em class="hen"></em>
+				<em class="egg"></em>
+				<em class="basket dragable"></em>
+				<em style="display: none" class="egg-broken"></em>
+				<!-- success -->
+				<em id="egg-success" class="success" style="display:none"></em>
+				<!-- failure -->
+				<em id="egg-failure" class="failure" style="display:none"></em>
+			</li>
+
+			<!-- 3. 重力感应验证码 -->
+			<li id="shake" class="shake-captcha captcha">
+				<h3 class="msg">左右倾斜手机，喂小猫吃鱼<button class="refresh" data-next=3>刷新</button></h3>
+				<em class="fish"></em>
+				<em class="dog"></em>
+				<em class="desk"></em>
+				<em class="cat"></em>
+				<em class="cat-get-fish" style="display:none"></em>
+			</li>
+
+			<!-- 4. 弹钢琴验证码 -->
+			<li id="piano" class="piano-captcha captcha">
+				<h3 class="hint">请在琴键上弹出 <i id="code"></i><button class="refresh" data-next=0>刷新</button></h3>
+				<ul class="piano">
+					<!-- 白键 -->
+					<li data-index="1"><audio class="keyboard" src="assets/media/1.mp3"></audio>1</li>
+					<li data-index="2"><audio class="keyboard" src="assets/media/2.mp3"></audio>2</li>
+					<li data-index="3"><audio class="keyboard" src="assets/media/3.mp3"></audio>3</li>
+					<li data-index="4"><audio class="keyboard" src="assets/media/4.mp3"></audio>4</li>
+					<li data-index="5"><audio class="keyboard" src="assets/media/5.mp3"></audio>5</li>
+					<li data-index="6"><audio class="keyboard" src="assets/media/6.mp3"></audio>6</li>
+					<li data-index="7"><audio class="keyboard" src="assets/media/7.mp3"></audio>7</li>
+
+					<!-- 黑键 -->
+					<li class="black black2" data-index="8"><audio class="keyboard" src="assets/media/8.mp3"></audio>8</li>
+					<li class="black black3" data-index="9"><audio class="keyboard" src="assets/media/9.mp3"></audio>9</li>
+					<li class="black black4" data-note="0" data-index="10"><audio class="keyboard" src="assets/media/0.mp3"></audio>0</li>
+					<li class="black black1" data-index="-1"><audio class="keyboard" src=""></audio></li>
+					<li class="black black5" data-index="-1"><audio class="keyboard" src=""></audio></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	
+</body>
+<script src="assets/js/zepto.js"></script>
+<script src="assets/js/zepto.drag.js"></script>
+<script src="assets/js/zepto.mask.js"></script>
+<script src="assets/js/zepto.down.js"></script>
+<script src="assets/js/zepto.verify.js"></script>
+<script src="assets/js/slider.js"></script>
+<script src="assets/js/washer.js"></script>
+<script src="assets/js/egg.js"></script>
+<script src="assets/js/piano.js"></script>
+<script src="assets/js/shake.js"></script>
+</html> 
