@@ -35,7 +35,9 @@
 			success: function() {
 				// console.log('success');
 				var target = this.target;
-				$('#piano-success').show().addClass('show');
+				$('#piano-success').show().addClass('show').one('webkitAnimationEnd', function() {
+					$pianoCaptcha.addClass('earthquake');
+				});
 				$('#piano-failure').hide();
 
 				// target.find('.mask').show();
@@ -50,7 +52,9 @@
 			failure: function() {
 				// console.log('failure');
 				var target = this.target;
-				$('#piano-failure').show().addClass('show');
+				$('#piano-failure').show().addClass('show').one('webkitAnimationEnd', function() {
+					$pianoCaptcha.addClass('earthquake');
+				});
 				$('#piano-success').hide();
 
 				// target.find('.mask').show();
@@ -76,7 +80,7 @@
 			var random = parseInt(Math.random() * 4);
 			window.location.href = captchas[random] + '.html';
 		});
-		
+
 		$('.piano li').on({
 			// 添加点击效果
 			'touchstart': function() {

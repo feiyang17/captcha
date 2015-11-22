@@ -17,8 +17,11 @@
 
 	// 显示验证成功
 	var success = function() {
-		$('#egg-success').show().addClass('show');
+		$('#egg-success').show().addClass('show').one('webkitAnimationEnd', function() {
+			$eggCaptcha.addClass('earthquake');
+		});
 		$('#egg-failure').hide();
+
 
 		// $('.mask').show();
 		// $('.yes').show();
@@ -32,7 +35,9 @@
 
 	// 显示验证失败
 	var fail = function() {
-		$('#egg-failure').show().addClass('show');
+		$('#egg-failure').show().addClass('show').one('webkitAnimationEnd', function() {
+			$eggCaptcha.addClass('earthquake');
+		});
 		$('#egg-success').hide();
 
 		var captchas = ['egg', 'shake', 'washer', 'piano'];

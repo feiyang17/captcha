@@ -5,6 +5,7 @@
 (function($) {
 	var $dress = $('.dress');
 	var $pants = $('.pants');
+	var $washerCaptcha = $('.washer-captcha');
 	$('.dragable').drag({
 		range: {
 			up: 0,
@@ -16,7 +17,9 @@
 
 	// 显示验证成功
 	var success = function() {
-		$('#washer-success').show().addClass('show');
+		$('#washer-success').show().addClass('show').one('webkitAnimationEnd', function() {
+			$washerCaptcha.addClass('earthquake');
+		});
 		$('#washer-failure').hide();
 		// $('.mask').show();
 		// $('.yes').show();
@@ -31,7 +34,9 @@
 
 	// 显示验证失败
 	var fail = function() {
-		$('#washer-failure').show().addClass('show');
+		$('#washer-failure').show().addClass('show').one('webkitAnimationEnd', function() {
+			$washerCaptcha.addClass('earthquake');
+		});
 		$('#washer-success').hide();
 		var captchas = ['egg', 'shake', 'washer', 'piano'];
 		setTimeout(function() {

@@ -12,8 +12,6 @@
 		var x = event.beta; // In degree in the range [-180,180]
 		var y = event.gamma; // In degree in the range [-90,90]
 
-		console.log(event);
-
 		// output.innerHTML = "beta : " + x + "\n";
 		// output.innerHTML += "gamma: " + y + "\n";
 
@@ -36,7 +34,8 @@
 		// ball.style.top = (maxX * x / 180 - 10) + "px";
 		// ball.style.left = (maxY * y / 180 - 10) + "px";
 
-		fish.style.left = (maxY * y / 180 - 10) + "px";
+		fish.style.left = (maxY * y / 180 - 20) + "px";
+		// fish.style.left = (maxX * x / 180 - $fish.offset().width / 2) + "px";
 		var left = $(fish).offset().left;
 
 		if (left < 70) {
@@ -78,7 +77,9 @@
 		// 验证成功
 		success: function() {
 			var target = this.target;
-			$('#shake-success').show().addClass('show');
+			$('#shake-success').show().addClass('show').one('webkitAnimationEnd', function() {
+				$shakeCaptcha.addClass('earthquake');
+			});
 			$('#shake-failure').hide();
 
 			try {
@@ -89,7 +90,9 @@
 		failure: function() {
 			console.log('failure');
 			var target = this.target;
-			$('#shake-failure').show().addClass('show');
+			$('#shake-failure').show().addClass('show').one('webkitAnimationEnd', function() {
+				$shakeCaptcha.addClass('earthquake');
+			});
 			$('#shake-success').hide();
 
 			var captchas = ['egg', 'shake', 'washer', 'piano'];

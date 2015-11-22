@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Catch the Egg</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
-	<link rel="stylesheet" href="assets/css/common.css">
+	<link rel="stylesheet" href="assets/css/common.css?=1">
 	<style>
 		.egg-captcha {
 			background: url(assets/images/egg/ground.png) no-repeat 0% 100%;
@@ -15,6 +15,7 @@
 			position: absolute;
 			height: 110px;
 			width: 105px;
+			/*width: 29%;*/
 			top: 5px;
 			right: 20px;
 			background: url(assets/images/egg/hen.png) no-repeat;
@@ -27,7 +28,7 @@
 			width: 30px;
 			background: url(assets/images/egg/egg.png) no-repeat;
 			background-size: cover;
-			right: 30px;
+			right: 60px;
 			top: 100px;
 		}
 
@@ -60,7 +61,7 @@
 </head>
 <body>
 	<div class="egg-captcha captcha">
-		<h3 class="msg">请拖动篮子接鸡蛋 <span class="refresh">刷新</span></h3>
+		<h3 class="msg">请拖动篮子接鸡蛋 <img src="assets/images/refresh.png" class="refresh"></h3>
 		<em class="hen"></em>
 		<em class="egg"></em>
 		<em class="basket dragable"></em>

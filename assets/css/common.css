@@ -12,11 +12,47 @@ ul {
 	position: relative;
 }
 
+@-webkit-keyframes earthquakeAnim{
+	from {
+		left: 3px;
+		-webkit-transform: rotate(1deg);
+	}
+
+	to {
+		right: 3px;
+		-webkit-transform: rotate(-1deg);
+	}
+}
+
+.captcha.earthquake  {
+    -webkit-animation: earthquakeAnim .08s 3;
+}
+
 .msg {
 	margin: 0;
 	padding-top: 20px;
 	padding-left: 20px;
 	color: #969696;
+}
+
+
+.refresh {
+	padding-left: 15px;
+	height: 15px;
+	width: 15px;
+	vertical-align: 0;
+}
+
+@media (max-width: 320px) {
+	.msg {
+		font-size: 14px;
+	}
+
+	.refresh {
+		height: 14px;
+		width: 14px;
+		vertical-align: -2px;
+	}
 }
 
 /*验证第一版本*/

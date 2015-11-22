@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Piano</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
-	<link rel="stylesheet" href="assets/css/common.css">
+	<link rel="stylesheet" href="assets/css/common.css?t=1">
 	<style>
 		.piano-captcha {
 			background-color: rgb(243, 243, 243);
@@ -28,7 +28,7 @@
 		.piano li {
 			display: inline-block;
 			height: 120px;
-			width: 12.5%;
+			width: 12.3%;
 			background-color: #FFF;
 			font-size: 20px;
 			font-weight: bold;
@@ -42,7 +42,7 @@
 			background-color: #030303;
 			color: white;
 			height: 80px;
-			width: 8.5%;
+			width: 8.3%;
 			border: 5px solid #f07163;
 			line-height: 90px;
 			vertical-align: bottom;
@@ -90,7 +90,7 @@
 </head>
 <body>
 	<div class="piano-captcha captcha">
-		<h3 class="msg">请在琴键上弹出 <i id="code"></i> <span class="refresh">刷新</span></h3>
+		<h3 class="msg">请在琴键上弹出 <i id="code"></i><img src="assets/images/refresh.png" class="refresh"></h3>
 		<ul class="piano">
 			<!-- 白键 -->
 			<li data-index="1"><audio class="keyboard" src="assets/media/1.mp3"></audio>1</li>
